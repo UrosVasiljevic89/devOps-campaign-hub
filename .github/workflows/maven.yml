@@ -32,7 +32,7 @@ jobs:
           cache-dependency-path: ${{ matrix.service }}/pom.xml
 
       - name: Build and test with Maven
-        run: mvn -B verify
+        run: mvn --batch-mode --no-transfer-progress clean verify
 
       - name: Upload test reports
         if: always()
