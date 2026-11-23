@@ -41,6 +41,21 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+		<!-- Metrike u Prometheus formatu: /actuator/prometheus -->
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
+		<!-- Trace-ovi: Micrometer Tracing preko OpenTelemetry-ja (traceId/spanId u logovima) -->
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-tracing-bridge-otel</artifactId>
+		</dependency>
+		<!-- Slanje trace-ova kolektoru (OTLP protokol, kasnije Grafana Tempo) -->
+		<dependency>
+			<groupId>io.opentelemetry</groupId>
+			<artifactId>opentelemetry-exporter-otlp</artifactId>
+		</dependency>
 
 		<!-- Prava baza (lokalno) -->
 		<dependency>
@@ -48,11 +63,11 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- Baza u memoriji za testove (CI) -->
+		<!-- Baza u memoriji, samo za testove (CI) -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- JUnit 5, Mockito, MockMvc, @DataJpaTest -->
