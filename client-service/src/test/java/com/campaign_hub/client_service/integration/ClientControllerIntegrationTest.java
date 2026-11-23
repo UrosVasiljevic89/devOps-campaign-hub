@@ -89,4 +89,10 @@ class ClientControllerIntegrationTest {
         mockMvc.perform(get("/api/clients/" + id))
                 .andExpect(status().isNotFound());
     }
+
+    @Test
+    void unknownUrl_returns404_notServerError() throws Exception {
+        mockMvc.perform(get("/api/nepostojeci"))
+                .andExpect(status().isNotFound());
+    }
 }
