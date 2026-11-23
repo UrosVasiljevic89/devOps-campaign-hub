@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         # novi servis se dodaje u listu kada se napravi njegov folder
-        service: [ client-service, campaign-service, analytics-service, notification-service ]
+        service: [ client-service, campaign-service, analytics-service, notification-service, api-gateway ]
     defaults:
       run:
         working-directory: ${{ matrix.service }}
