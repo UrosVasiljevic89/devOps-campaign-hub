@@ -94,4 +94,11 @@ class CampaignControllerIntegrationTest {
                 .exchange()
                 .expectStatus().isNotFound();
     }
+    
+    @Test
+    void unknownUrl_returns404_notServerError() {
+        webTestClient.get().uri("/api/nepostojeci")
+                .exchange()
+                .expectStatus().isNotFound();
+    }
 }

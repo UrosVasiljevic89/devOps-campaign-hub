@@ -94,4 +94,11 @@ class AnalyticsControllerIntegrationTest {
                 .jsonPath("$.date").exists()
                 .jsonPath("$.impressions").exists();
     }
+
+    @Test
+    void unknownUrl_returns404_notServerError() {
+        webTestClient.get().uri("/api/nepostojeci")
+                .exchange()
+                .expectStatus().isNotFound();
+    }
 }
